@@ -1,0 +1,35 @@
+plugins {
+	id 'com.architecturelab.java-conventions'
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.architecturelab'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+description = 'reparation-infra'
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.6.6'
+	implementation 'org.springframework.boot:spring-boot-starter:2.6.6'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.6'
+	implementation 'org.springframework.boot:spring-boot-starter-validation:2.6.6'
+	implementation 'org.apache.logging.log4j:log4j-to-slf4j:2.17.2'
+	runtimeOnly 'mysql:mysql-connector-java'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.6'
+	compileOnly 'org.projectlombok:lombok'	
+	annotationProcessor 'org.projectlombok:lombok'
+}
