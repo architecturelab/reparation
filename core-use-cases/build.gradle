@@ -12,7 +12,15 @@ plugins {
 group = 'com.architecturelab'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
-description = 'reparation-core-use-cases'
+description = 'core-use-cases'
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
