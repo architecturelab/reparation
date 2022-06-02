@@ -1,0 +1,9 @@
+rootProject.name = 'reparation'
+include(':reparation-core-use-cases')
+include(':reparation-core-domain')
+include(':reparation-infra')
+include(':reparation-application')
+project(":reparation-core-use-cases").projectDir = file('core-use-cases')
+project(":reparation-core-domain").projectDir = file('core-domain')
+project(":reparation-infra").projectDir = file('infra')
+project(":reparation-application").projectDir = file('application')
