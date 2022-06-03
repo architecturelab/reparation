@@ -10,11 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReparationTicketInput {
-	 private Long id; 
+
+	 private Long id;
 	 
-	 private Long reparationId;
-	 
-	 private Long activoId;
+	 private Long ticketId;
 	 
 	 private String description;
 	 

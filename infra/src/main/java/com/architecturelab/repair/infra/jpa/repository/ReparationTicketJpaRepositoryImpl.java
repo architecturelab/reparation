@@ -37,13 +37,8 @@ public class ReparationTicketJpaRepositoryImpl implements ReparationTicketJpaRep
     }
 
 	@Override
-	public Optional<ReparationTicketDomain> getByReparationId(Long reparationId) {
-		return reparationTicketDao.getByReparationId(reparationId);
-	}
-	
-	@Override
-	public Optional<ReparationTicketDomain> getByActivoId(Long activoId) {
-		return reparationTicketDao.getByActivoId(activoId);
+	public Optional<ReparationTicketDomain> getByTicketId(Long activoId) {
+		return reparationTicketDao.getByTicketId(activoId);
 	}
 
 }

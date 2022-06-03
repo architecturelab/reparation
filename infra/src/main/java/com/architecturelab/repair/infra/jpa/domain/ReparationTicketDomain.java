@@ -29,12 +29,9 @@ public class ReparationTicketDomain implements Serializable {
     @Column(name="ID")
     @GeneratedValue(strategy= GenerationType.AUTO)
     protected Long id;
- 
-    @Column(name="reparation_id")
-    private Long reparationId;
     
-    @Column(name = "activo_id")
-    private Long activoId;
+    @Column(name = "ticket_id")
+    private Long ticketId;
     
     @Column(name = "descripcion")
     private String description;

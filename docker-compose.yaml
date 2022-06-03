@@ -10,7 +10,7 @@ services:
     networks:
       - local-environment
     ports:
-      - 8083:80
+      - 8085:80
     volumes:
       - .m2:/root/.m2
 
