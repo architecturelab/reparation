@@ -3,3 +3,6 @@ kind: Kustomization
 resources:
   - deployment.yml
   - service.yml
+images:
+  - name: LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE
+    newName: us-central1-docker.pkg.dev/basearchitecture/quickstart-docker-repo/reparation-qa

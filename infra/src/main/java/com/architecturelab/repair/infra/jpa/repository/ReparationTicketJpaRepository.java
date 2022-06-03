@@ -11,8 +11,6 @@ public interface ReparationTicketJpaRepository {
 
     public Optional<ReparationTicketDomain> getById(Long id);
     
-    public Optional<ReparationTicketDomain> getByReparationId(Long reparationId);
-    
-    public Optional<ReparationTicketDomain> getByActivoId(Long activoId);
+    public Optional<ReparationTicketDomain> getByTicketId(Long ticketId);
 
 }

@@ -17,7 +17,5 @@ public interface ReparationTicketInputUseCases {
 
     public ReparationTicketInput getById(Long id);
     
-    public ReparationTicketInput getByReparationId(Long reparationId);
-    
-    public ReparationTicketInput getByActivoId(Long activoId);
+    public ReparationTicketInput getByTicketId(Long ticketId);
 }
