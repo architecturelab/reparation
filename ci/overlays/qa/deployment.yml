@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
         - name: reparation-qa
-          image: PROJECT_ID/REPOSITORY/IMAGE
+          image: us-central1-docker.pkg.dev/basearchitecture/quickstart-docker-repo/reparation-qa
           ports:
             - containerPort: 80
