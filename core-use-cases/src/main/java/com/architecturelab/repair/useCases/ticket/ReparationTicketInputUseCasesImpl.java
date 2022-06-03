@@ -22,8 +22,7 @@ public class ReparationTicketInputUseCasesImpl implements ReparationTicketInputU
     public ReparationTicketInput create(ReparationTicketInput ticketInput) {
     	ReparationTicketDomain ticket = reparationTicketJpaRepository.save(new ReparationTicketDomain(
     			ticketInput.getId(),
-    			ticketInput.getReparationId(),
-                ticketInput.getActivoId(),  
+                ticketInput.getTicketId(),
                 ticketInput.getDescription(),
                 ticketInput.getUsuarioCreacion(),
                 ticketInput.getFechaCreacion(),
@@ -32,8 +31,7 @@ public class ReparationTicketInputUseCasesImpl implements ReparationTicketInputU
         ));
     	ReparationTicketInput input = new ReparationTicketInput(
                 ticket.getId(),
-                ticket.getReparationId(),
-                ticket.getActivoId(),
+                ticket.getTicketId(),
                 ticket.getDescription(),
                 ticket.getUsuarioCreacion(),
                 ticket.getFechaCreacion(),
@@ -45,10 +43,10 @@ public class ReparationTicketInputUseCasesImpl implements ReparationTicketInputU
 
     @Override
     public ReparationTicketInput update(ReparationTicketInput ticketInput) {
-        Optional<ReparationTicketDomain> ticketData = reparationTicketJpaRepository.getById(ticketInput.getReparationId());
+        Optional<ReparationTicketDomain> ticketData = reparationTicketJpaRepository.getById(ticketInput.getId());
         if (ticketData.isPresent()){
         	ReparationTicketDomain ticket = ticketData.get();
-            ticket.setActivoId(ticketInput.getActivoId());
+            ticket.setTicketId(ticketInput.getTicketId());
             ticket.setDescription(ticketInput.getDescription());
             ticket.setUsuarioCreacion(ticketInput.getUsuarioCreacion());
             ticket.setFechaCreacion(ticketInput.getFechaCreacion());
@@ -58,8 +56,7 @@ public class ReparationTicketInputUseCasesImpl implements ReparationTicketInputU
             ReparationTicketDomain updated = reparationTicketJpaRepository.save(ticket);
             ReparationTicketInput input = new ReparationTicketInput(
             		updated.getId(),
-            		updated.getReparationId(),
-                    updated.getActivoId(),
+                    updated.getTicketId(),
                     updated.getDescription(),
                     updated.getUsuarioCreacion(),
                     updated.getFechaCreacion(),
@@ -80,8 +77,7 @@ public class ReparationTicketInputUseCasesImpl implements ReparationTicketInputU
         tickets.forEach(i -> {
         	ReparationTicketInput ticket = new ReparationTicketInput(
         			i.getId(),
-                    i.getReparationId(),
-                    i.getActivoId(),
+                    i.getTicketId(),
                     i.getDescription(),
                     i.getUsuarioCreacion(),
                     i.getFechaCreacion(),
@@ -100,8 +96,7 @@ public class ReparationTicketInputUseCasesImpl implements ReparationTicketInputU
         	ReparationTicketDomain ticket = ticketData.get();
         	ReparationTicketInput input = new ReparationTicketInput(
         			ticket.getId(),
-                    ticket.getReparationId(),
-                    ticket.getActivoId(),
+                    ticket.getTicketId(),
                     ticket.getDescription(),
                     ticket.getUsuarioCreacion(),
                     ticket.getFechaCreacion(),
@@ -112,36 +107,15 @@ public class ReparationTicketInputUseCasesImpl implements ReparationTicketInputU
         }
         return null;
     }
-
-	@Override
-	public ReparationTicketInput getByReparationId(Long reparationId) {
-        Optional<ReparationTicketDomain> ticketData = reparationTicketJpaRepository.getByReparationId(reparationId);
-        if (ticketData.isPresent()){
-        	ReparationTicketDomain ticket = ticketData.get();
-        	ReparationTicketInput input = new ReparationTicketInput(
-        			ticket.getId(),
-                    ticket.getReparationId(),
-                    ticket.getActivoId(),
-                    ticket.getDescription(),
-                    ticket.getUsuarioCreacion(),
-                    ticket.getFechaCreacion(),
-                    ticket.getUsuarioModifica(),
-                    ticket.getFechaModifica()
-            );
-            return input;
-        }
-		return null;
-	}
 	
 	@Override
-	public ReparationTicketInput getByActivoId(Long activoId) {
-        Optional<ReparationTicketDomain> ticketData = reparationTicketJpaRepository.getByActivoId(activoId);
+	public ReparationTicketInput getByTicketId(Long ticketId) {
+        Optional<ReparationTicketDomain> ticketData = reparationTicketJpaRepository.getByTicketId(ticketId);
         if (ticketData.isPresent()){
         	ReparationTicketDomain ticket = ticketData.get();
         	ReparationTicketInput input = new ReparationTicketInput(
         			ticket.getId(),
-                    ticket.getReparationId(),
-                    ticket.getActivoId(),
+                    ticket.getTicketId(),
                     ticket.getDescription(),
                     ticket.getUsuarioCreacion(),
                     ticket.getFechaCreacion(),

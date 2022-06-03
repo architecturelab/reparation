@@ -23,8 +23,8 @@ public class RepairController {
 	 	@Autowired
 	 	private ReparationTicketInputUseCases reparationTicketInputUseCases;
 
-	    @GetMapping("/ticket/{id}")
-	    public ResponseEntity<ReparationTicketInput> getTicketById(@PathVariable Long id) {
+	    @GetMapping("/reparation/{id}")
+	    public ResponseEntity<ReparationTicketInput> getReparationById(@PathVariable Long id) {
 	        try {
 	        	ReparationTicketInput ticketInput = reparationTicketInputUseCases.getById(id);
 	            if (ticketInput != null) {
@@ -36,8 +36,8 @@ public class RepairController {
 	        }
 	    }
 
-	    @PostMapping("/ticket")
-	    public ResponseEntity<ReparationTicketInput> createTicket(@RequestBody ReparationTicketInput ticketInput) {
+	    @PostMapping("/reparation")
+	    public ResponseEntity<ReparationTicketInput> createReparation(@RequestBody ReparationTicketInput ticketInput) {
 	        try {
 	        	ReparationTicketInput _ticketInput = reparationTicketInputUseCases.create(ticketInput);
 	            return new ResponseEntity<>(_ticketInput, HttpStatus.CREATED);
@@ -46,8 +46,8 @@ public class RepairController {
 	        }
 	    }
 
-	    @PutMapping("/ticket")
-	    public ResponseEntity<ReparationTicketInput> updateTicket(@RequestBody ReparationTicketInput ticketInput) {
+	    @PutMapping("/reparation")
+	    public ResponseEntity<ReparationTicketInput> updateReparation(@RequestBody ReparationTicketInput ticketInput) {
 	        try {
 	        	ReparationTicketInput _ticketInput = reparationTicketInputUseCases.update(ticketInput);
 	            if (_ticketInput !=null) {
@@ -61,8 +61,8 @@ public class RepairController {
 	        }
 	    }
 
-	    @GetMapping("/tickets")
-	    public ResponseEntity<List<ReparationTicketInput>> getAllTickets() {
+	    @GetMapping("/reparations")
+	    public ResponseEntity<List<ReparationTicketInput>> getAllReparations() {
 	        try {
 	            List<ReparationTicketInput> ticketInputs = reparationTicketInputUseCases.getAll();
 	            if (ticketInputs.isEmpty()) {
@@ -74,23 +74,10 @@ public class RepairController {
 	        }
 	    }
 	    
-	    @GetMapping("/ticket/reparationId/{reparationId}")
-	    public ResponseEntity<ReparationTicketInput> getTicketByReparationId(@PathVariable Long reparationId) {
+	    @GetMapping("/reparations/ticket/{ticketId}")
+	    public ResponseEntity<ReparationTicketInput> getReparationByTicketId(@PathVariable Long ticketId) {
 	        try {
-	        	ReparationTicketInput ticketInput = reparationTicketInputUseCases.getByReparationId(reparationId);
-	            if (ticketInput != null) {
-	                return new ResponseEntity<>(ticketInput, HttpStatus.OK);
-	            }
-	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	        } catch (Exception e) {
-	            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-	        }
-	    }
-	    
-	    @GetMapping("/ticket/activoId/{activoId}")
-	    public ResponseEntity<ReparationTicketInput> getTicketByActivoId(@PathVariable Long activoId) {
-	        try {
-	        	ReparationTicketInput ticketInput = reparationTicketInputUseCases.getByActivoId(activoId);
+	        	ReparationTicketInput ticketInput = reparationTicketInputUseCases.getByTicketId(ticketId);
 	            if (ticketInput != null) {
 	                return new ResponseEntity<>(ticketInput, HttpStatus.OK);
 	            }
