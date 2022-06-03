@@ -25,7 +25,7 @@ env:
   DEPLOYMENT_NAME: reparation-qa # TODO: update to deployment name
   REPOSITORY: quickstart-docker-repo # TODO: update to Artifact Registry docker repository
   IMAGE: reparation-qa
-  IMAGE_TAG: ${{ github.sha }}
+  IMAGE_TAG: latest
   PROFILE: qa
 
 
@@ -90,7 +90,7 @@ jobs:
       - name: Deploy
         run: |-
           # replacing the image name in the k8s template
-          ./kustomize edit set image LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:IMAGE_TAG
+          ./kustomize edit set image LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$IMAGE_TAG
           ./kustomize build ci/overlays/qa | kubectl apply -f -
           kubectl rollout status deployment/$DEPLOYMENT_NAME
           kubectl get services -o wide
