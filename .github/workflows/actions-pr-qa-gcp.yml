@@ -25,7 +25,7 @@ env:
   DEPLOYMENT_NAME: reparation-qa # TODO: update to deployment name
   REPOSITORY: quickstart-docker-repo # TODO: update to Artifact Registry docker repository
   IMAGE: reparation-qa
-  IMAGE_TAG: ${{ env.GIT_TAG }}
+  IMAGE_TAG: ${{ github.sha }}
   PROFILE: qa
 
 
